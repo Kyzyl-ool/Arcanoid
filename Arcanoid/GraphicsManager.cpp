@@ -32,6 +32,11 @@
 #include "Background.cpp"
 #endif
 
+#ifndef BALL_INCLUDED
+#define BALL_INCLUDED
+#include "Ball.cpp"
+#endif
+
 class GraphicsManager
 {
 private:

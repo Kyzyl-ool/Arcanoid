@@ -15,8 +15,6 @@
 #include "GameObject.cpp"
 #endif
 
-#include <cmath>
-
 #define SUPPORT_HEIGHT 22
 #define SUPPORT_EPSILON 4
 

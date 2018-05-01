@@ -23,6 +23,7 @@ int main(int, char const**)
     
     Background b(0);
     Support support;
+    Ball ball;
 
     int space[MAX_BLOCKS_Y][MAX_BLOCKS_X] =
     {
@@ -50,7 +51,9 @@ int main(int, char const**)
     //Loading all game objects to game manager's array
     GManager.AddGameObject(&b);
     GManager.AddGameObject(&support);
+    GManager.AddGameObject(&ball);
     PManager.AddGameObject(&support);
+    PManager.AddGameObject(&ball);
     for (int i = 0; i < MAX_BLOCKS_Y*MAX_BLOCKS_X; i++)
     {
         if (bricks[i] != nullptr)

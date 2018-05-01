@@ -34,6 +34,11 @@
 #include "Background.cpp"
 #endif
 
+#ifndef BALL_INCLUDED
+#define BALL_INCLUDED
+#include "Ball.cpp"
+#endif
+
 float dt;
 //sf::Clock clocks;
 

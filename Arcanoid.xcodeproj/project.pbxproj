@@ -37,6 +37,7 @@
 		176F61E32098C6600069D2F6 /* PhysicsManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicsManager.cpp; sourceTree = "<group>"; };
 		176F61E52098D3160069D2F6 /* blocks2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blocks2.png; sourceTree = "<group>"; };
 		176F61E72098D7D00069D2F6 /* default_blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_blocks.png; sourceTree = "<group>"; };
+		176F61E92098E9C50069D2F6 /* Ball.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Ball.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +70,7 @@
 		170E779B209863E10042027C /* Arcanoid */ = {
 			isa = PBXGroup;
 			children = (
+				176F61E92098E9C50069D2F6 /* Ball.cpp */,
 				176F61E32098C6600069D2F6 /* PhysicsManager.cpp */,
 				176F61E12098C6480069D2F6 /* GraphicsManager.cpp */,
 				170E77A1209863E10042027C /* main.cpp */,
