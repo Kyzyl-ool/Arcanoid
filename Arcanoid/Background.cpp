@@ -31,7 +31,6 @@ private:
 
 public:
     Background(int the_type);
-    ~Background();
     
     void draw(sf::RenderWindow* window);
 };
@@ -59,11 +58,6 @@ Background::Background(int the_type)
     sprite.setTextureRect(sf::IntRect(x, y, BACKGROUND_TEXTURE_SIZE, BACKGROUND_TEXTURE_SIZE));
     
     sprite.setPosition(0, 0);
-}
-
-Background::~Background()
-{
-    
 }
 
 void Background::draw(sf::RenderWindow* window)

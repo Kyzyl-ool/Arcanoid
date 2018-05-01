@@ -34,6 +34,7 @@ enum support_length
 class Support: public GameObject
 {
 private:
+    sf::Sprite sprite2;
     int length;
     int screen_size;
     double acceleration;
@@ -62,9 +63,14 @@ screen_size(DEFAULT_SCREEN_WIDTH)
 {
     x = 0;
     y = DEFAULT_SCREEN_HEIGHT - SUPPORT_HEIGHT;
+    
     texture.loadFromFile("support.png");
     sprite.setTexture(texture);
     sprite.setTextureRect(sf::IntRect(0, 0, 44, 22));
+    
+    sprite2.setTexture(texture);
+    sprite2.setTextureRect(sf::IntRect(0, 0, 44, 22));
+    sprite2.setScale(-1, 1);
 }
 
 void Support::setAcceleeration(double acc)
@@ -103,6 +109,7 @@ void Support::update(float dt)
     }
     
     sprite.setPosition(x, y);
+    sprite2.setPosition(x+length, y);
 }
 
 void Support::dump()
@@ -130,4 +137,5 @@ void Support::setVelocity(double v)
 void Support::draw(sf::RenderWindow* window)
 {
     window->draw(sprite);
+    window->draw(sprite2);
 }
