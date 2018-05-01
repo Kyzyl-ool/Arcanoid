@@ -23,6 +23,7 @@ protected:
 public:
     sf::Sprite* GetSprite();
     virtual void update(float) {;}
+    virtual void draw(sf::RenderWindow* window) {;}
 //    GameObject();
 //    ~GameObject();
 };

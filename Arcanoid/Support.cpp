@@ -43,6 +43,8 @@ private:
 public:
     Support();
     
+    void draw(sf::RenderWindow* window);
+    
     double getVelocity();
     
     void setAcceleeration(double acc);
@@ -123,4 +125,9 @@ void Support::reduceVelocity()
 void Support::setVelocity(double v)
 {
     velocity = v;
+}
+
+void Support::draw(sf::RenderWindow* window)
+{
+    window->draw(sprite);
 }

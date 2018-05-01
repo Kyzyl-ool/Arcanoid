@@ -37,26 +37,6 @@
 float dt;
 //sf::Clock clocks;
 
-
-class GraphicsManager
-{
-private:
-    sf::RenderWindow* window;
-    sf::Sprite* Sprites[AMOUNT_OF_GAME_OBJECTS];
-    int amount_of_game_objects;
-    
-    
-public:
-    GraphicsManager(sf::RenderWindow* window_pointer);
-    //    ~GraphicsManager();
-    
-    void AddSprite(sf::Sprite* spr);
-    void AddSprite(GameObject* obj);
-    void DrawAllObjects();
-};
-
-
-
 class PhysicsManager
 {
 private:

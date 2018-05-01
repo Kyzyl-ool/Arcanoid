@@ -21,13 +21,14 @@ int main(int, char const**)
     GraphicsManager GManager(&window);
     PhysicsManager  PManager;
     
-    Background b(0);
+    Background b(1);
     Support support;
     
     
     //Loading all game objects to game manager's array
-    GManager.AddSprite(&b);
-    GManager.AddSprite(&support);
+    GManager.AddGameObject(&b);
+    GManager.AddGameObject(&support);
+    
     PManager.AddGameObject(&support);
     
     // Start the game loop

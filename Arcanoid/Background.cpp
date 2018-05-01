@@ -32,6 +32,8 @@ private:
 public:
     Background(int the_type);
     ~Background();
+    
+    void draw(sf::RenderWindow* window);
 };
 
 int get_background_coord_x(int the_type)
@@ -62,4 +64,16 @@ Background::Background(int the_type)
 Background::~Background()
 {
     
+}
+
+void Background::draw(sf::RenderWindow* window)
+{
+    sf::Vector2u WindowSize = window->getSize();
+    
+    for (int i = 0; i < WindowSize.x / BACKGROUND_TEXTURE_SIZE + 1; i++)
+        for (int j = 0; j < WindowSize.y / BACKGROUND_TEXTURE_SIZE + 1; j++)
+        {
+            sprite.setPosition(i*BACKGROUND_TEXTURE_SIZE, j*BACKGROUND_TEXTURE_SIZE);
+            window->draw(sprite);
+        }
 }

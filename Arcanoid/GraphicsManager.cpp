@@ -32,29 +32,39 @@
 #include "Background.cpp"
 #endif
 
+class GraphicsManager
+{
+private:
+    sf::RenderWindow* window;
+    GameObject* gameobjects[AMOUNT_OF_GAME_OBJECTS];
+    int amount_of_game_objects;
+    
+    
+public:
+    GraphicsManager(sf::RenderWindow* window_pointer);
+    //    ~GraphicsManager();
+    
+    void AddGameObject(GameObject* obj);
+    void DrawAllObjects();
+};
+
 GraphicsManager::GraphicsManager(sf::RenderWindow* window_pointer):
 window(window_pointer),
 amount_of_game_objects(0)
 {
     
 }
-
-void GraphicsManager::AddSprite(sf::Sprite *spr)
-{
-    Sprites[amount_of_game_objects++] = spr;
-}
-
 void GraphicsManager::DrawAllObjects()
 {
     for (int i = 0; i < amount_of_game_objects; i++)
     {
-        window->draw(*Sprites[i]);
+        gameobjects[i]->draw(window);
     }
 }
 
-void GraphicsManager::AddSprite(GameObject* obj)
+void GraphicsManager::AddGameObject(GameObject *obj)
 {
-    Sprites[amount_of_game_objects++] = obj->GetSprite();
+    gameobjects[amount_of_game_objects++] = obj;
 }
 
 
