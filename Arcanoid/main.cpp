@@ -105,6 +105,18 @@ int main(int, char const**)
                     }
                     break;
                 }
+                case sf::Event::MouseButtonPressed:
+                {
+                    switch(event.key.code)
+                    {
+                        case sf::Mouse::Left:
+                        {
+                            ball.release();
+                            break;
+                        }
+                        default: break;
+                    }
+                }
                 case sf::Event::KeyReleased:
                 {
                     switch (event.key.code)

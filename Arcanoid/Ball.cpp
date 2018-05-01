@@ -27,8 +27,11 @@ private:
     
 public:
     Ball();
+    
     void update(float dt);
     void draw(sf::RenderWindow* window);
+    
+    void release();
 };
 
 int get_ball_coord_x(int the_type)
@@ -80,4 +83,9 @@ void Ball::update(float dt)
     sprite.setPosition(x, y);
     
 //    std::cout << x << ", " << y << std::endl;
+}
+
+void Ball::release()
+{
+    free = true;
 }
