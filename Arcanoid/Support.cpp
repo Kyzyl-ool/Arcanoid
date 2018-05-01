@@ -21,6 +21,7 @@
 #define SUPPORT_EPSILON 4
 
 #define DEFAULT_SCREEN_WIDTH 800
+#define DEFAULT_SCREEN_HEIGHT 600
 
 enum support_length
 {
@@ -58,7 +59,7 @@ length(SUPPORT_NORMAL),
 screen_size(DEFAULT_SCREEN_WIDTH)
 {
     x = 0;
-    y = 0;
+    y = DEFAULT_SCREEN_HEIGHT - SUPPORT_HEIGHT;
     texture.loadFromFile("support.png");
     sprite.setTexture(texture);
     sprite.setTextureRect(sf::IntRect(0, 0, 44, 22));
