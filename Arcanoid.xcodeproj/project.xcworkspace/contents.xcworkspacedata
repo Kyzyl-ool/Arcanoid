@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../Arcanoid/blocks.png">
+   </FileRef>
+   <FileRef
+      location = "group:../Arcanoid/support.png">
+   </FileRef>
+   <FileRef
       location = "self:Arcanoid.xcodeproj">
    </FileRef>
 </Workspace>
