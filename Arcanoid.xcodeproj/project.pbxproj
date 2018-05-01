@@ -7,24 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		170E779F209863E10042027C /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 170E779E209863E10042027C /* ResourcePath.mm */; };
 		170E77A2209863E10042027C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 170E77A1209863E10042027C /* main.cpp */; };
 		170E77A9209863E10042027C /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 170E77A8209863E10042027C /* sansation.ttf */; };
 		170E77AB209863E10042027C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 170E77AA209863E10042027C /* icon.png */; };
-		170E77B6209868700042027C /* Brick.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 170E77B5209868700042027C /* Brick.cpp */; };
-		170E77B8209868970042027C /* Support.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 170E77B7209868970042027C /* Support.cpp */; };
 		176F61CF2098690E0069D2F6 /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 176F61CD2098690E0069D2F6 /* blocks.png */; };
 		176F61D02098690E0069D2F6 /* support.png in Resources */ = {isa = PBXBuildFile; fileRef = 176F61CE2098690E0069D2F6 /* support.png */; };
-		176F61D420986D0D0069D2F6 /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176F61D320986D0D0069D2F6 /* Background.cpp */; };
 		176F61D6209874CD0069D2F6 /* backgrounds.png in Resources */ = {isa = PBXBuildFile; fileRef = 176F61D5209874CD0069D2F6 /* backgrounds.png */; };
-		176F61D820987A500069D2F6 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176F61D720987A500069D2F6 /* Game.cpp */; };
+		176F61DE20989A0C0069D2F6 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 176F61D920988BDA0069D2F6 /* ResourcePath.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		170E7799209863E10042027C /* Arcanoid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Arcanoid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		170E779D209863E10042027C /* Arcanoid-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Arcanoid-Info.plist"; sourceTree = "<group>"; };
-		170E779E209863E10042027C /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
-		170E77A0209863E10042027C /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		170E77A1209863E10042027C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		170E77A8209863E10042027C /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		170E77AA209863E10042027C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -35,6 +29,9 @@
 		176F61D320986D0D0069D2F6 /* Background.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Background.cpp; sourceTree = "<group>"; };
 		176F61D5209874CD0069D2F6 /* backgrounds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgrounds.png; sourceTree = "<group>"; };
 		176F61D720987A500069D2F6 /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		176F61D920988BDA0069D2F6 /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
+		176F61DA20988BDA0069D2F6 /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
+		176F61DC209891350069D2F6 /* GameObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,11 +64,10 @@
 		170E779B209863E10042027C /* Arcanoid */ = {
 			isa = PBXGroup;
 			children = (
-				170E779E209863E10042027C /* ResourcePath.mm */,
-				170E77A0209863E10042027C /* ResourcePath.hpp */,
 				170E77A1209863E10042027C /* main.cpp */,
 				176F61D720987A500069D2F6 /* Game.cpp */,
 				170E77B5209868700042027C /* Brick.cpp */,
+				176F61DC209891350069D2F6 /* GameObject.cpp */,
 				170E77B7209868970042027C /* Support.cpp */,
 				176F61D320986D0D0069D2F6 /* Background.cpp */,
 				170E77A3209863E10042027C /* Resources */,
@@ -91,6 +87,8 @@
 		170E77A3209863E10042027C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				176F61DA20988BDA0069D2F6 /* ResourcePath.hpp */,
+				176F61D920988BDA0069D2F6 /* ResourcePath.mm */,
 				176F61D5209874CD0069D2F6 /* backgrounds.png */,
 				176F61CD2098690E0069D2F6 /* blocks.png */,
 				176F61CE2098690E0069D2F6 /* support.png */,
@@ -192,12 +190,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				170E77B6209868700042027C /* Brick.cpp in Sources */,
-				170E77B8209868970042027C /* Support.cpp in Sources */,
+				176F61DE20989A0C0069D2F6 /* ResourcePath.mm in Sources */,
 				170E77A2209863E10042027C /* main.cpp in Sources */,
-				176F61D820987A500069D2F6 /* Game.cpp in Sources */,
-				176F61D420986D0D0069D2F6 /* Background.cpp in Sources */,
-				170E779F209863E10042027C /* ResourcePath.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +292,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Arcanoid/Arcanoid-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -308,6 +303,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Arcanoid/Arcanoid-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

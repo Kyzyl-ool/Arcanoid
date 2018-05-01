@@ -1,5 +1,5 @@
 //
-//  Support.cpp
+//  GameObject.cpp
 //  Arcanoid
 //
 //  Created by Кежик Кызыл-оол on 01.05.2018.
@@ -11,21 +11,21 @@
 #include <SFML/Graphics.hpp>
 #endif
 
-class abstract_support
+class GameObject
 {
-private:
-    int x, y;   //coordinates
-    int length;
-    int height;
+protected:
+    int x, y;
     sf::Sprite sprite;
+    sf::Texture texture;
     
-
 public:
-    abstract_support();
-    ~abstract_support();
+    void draw();
+    sf::Sprite* GetSprite();
+//    GameObject();
+//    ~GameObject();
 };
 
-class Common_Support: public abstract_support
+sf::Sprite* GameObject::GetSprite()
 {
-    
-};
+    return &sprite;
+}

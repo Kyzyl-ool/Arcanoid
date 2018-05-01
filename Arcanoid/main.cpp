@@ -1,5 +1,6 @@
 #include "Game.cpp"
 
+
 int main(int, char const**)
 {
     // Create the main window
@@ -10,8 +11,15 @@ int main(int, char const**)
     if (!icon.loadFromFile(resourcePath() + "icon.png")) {
         return EXIT_FAILURE;
     }
+    window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+    
+    Background b(BACKGROUND_DEFAULT);
+    
+    GameManager Manager(&window);
+    Manager.AddSprite(b.GetSprite());
+    
     
     // Start the game loop
     while (window.isOpen())
@@ -33,6 +41,8 @@ int main(int, char const**)
         
         // Clear screen
         window.clear();
+        
+        Manager.DrawAllObjects();
         
         // Update the window
         window.display();
