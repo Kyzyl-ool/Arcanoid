@@ -66,7 +66,11 @@ health(3)
 
 void Brick::update()
 {
-    
+    sprite.setTextureRect(sf::IntRect(
+                                      get_brick_coord_x(sort),
+                                      get_brick_coord_y(health),
+                                      BLOCK_WIDTH/2,
+                                      BLOCK_HEIGHT/2));
 }
 
 void Brick::draw(sf::RenderWindow* window)
