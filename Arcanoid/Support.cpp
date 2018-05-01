@@ -15,8 +15,12 @@
 #include "GameObject.cpp"
 #endif
 
+#include <cmath>
+
 #define SUPPORT_HEIGHT 22
-#define SUPPORT_EPSILON 0.1
+#define SUPPORT_EPSILON 4
+
+#define DEFAULT_SCREEN_WIDTH 800
 
 enum support_length
 {
@@ -30,6 +34,7 @@ class Support: public GameObject
 {
 private:
     int length;
+    int screen_size;
     double acceleration;
     double velocity;
     
@@ -49,7 +54,8 @@ public:
 };
 
 Support::Support():
-length(SUPPORT_NORMAL)
+length(SUPPORT_NORMAL),
+screen_size(DEFAULT_SCREEN_WIDTH)
 {
     x = 0;
     y = 0;
@@ -60,6 +66,17 @@ length(SUPPORT_NORMAL)
 
 void Support::setAcceleeration(double acc)
 {
+    if (acceleration == 0)
+    {
+        if (acc > 0)
+        {
+            velocity = 10;
+        }
+        else if (acc < 0)
+        {
+            velocity = -10;
+        }
+    }
     acceleration = acc;
 }
 
@@ -71,23 +88,31 @@ double Support::getVelocity()
 void Support::update(float dt)
 {
     velocity += acceleration*dt;
-    x += velocity*dt;
+    if (x >= 0 && x + length <= screen_size)
+        x += velocity*dt;
+    else
+    {
+        velocity = 0;
+        if (x < 0)
+            x = 0;
+        else
+            x = screen_size - length;
+    }
     
     sprite.setPosition(x, y);
-    
-//    std::cout << "support updated\n";
 }
 
 void Support::dump()
 {
     std::cout << "acc: " << acceleration << std::endl;
+    std::cout << "vel: " << velocity << std::endl;
 }
 
 
 //КОРЯВАЯ ФУНКЦИЯ
 void Support::reduceVelocity()
 {
-    velocity /= 8;
+    velocity /= 4;
     if (velocity < SUPPORT_EPSILON)
     {
         velocity = 0;

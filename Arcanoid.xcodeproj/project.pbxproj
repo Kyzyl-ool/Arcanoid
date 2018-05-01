@@ -31,7 +31,8 @@
 		176F61D920988BDA0069D2F6 /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		176F61DA20988BDA0069D2F6 /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		176F61DC209891350069D2F6 /* GameObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
-		176F61DF2098ACFC0069D2F6 /* GameManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameManager.cpp; sourceTree = "<group>"; };
+		176F61E12098C6480069D2F6 /* GraphicsManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GraphicsManager.cpp; sourceTree = "<group>"; };
+		176F61E32098C6600069D2F6 /* PhysicsManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicsManager.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +65,8 @@
 		170E779B209863E10042027C /* Arcanoid */ = {
 			isa = PBXGroup;
 			children = (
-				176F61DF2098ACFC0069D2F6 /* GameManager.cpp */,
+				176F61E32098C6600069D2F6 /* PhysicsManager.cpp */,
+				176F61E12098C6480069D2F6 /* GraphicsManager.cpp */,
 				170E77A1209863E10042027C /* main.cpp */,
 				170E77B5209868700042027C /* Brick.cpp */,
 				176F61DC209891350069D2F6 /* GameObject.cpp */,

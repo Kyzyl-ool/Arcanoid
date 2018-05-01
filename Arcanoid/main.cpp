@@ -1,4 +1,5 @@
-#include "GameManager.cpp"
+#include "PhysicsManager.cpp"
+#include "GraphicsManager.cpp"
 
 
 int main(int, char const**)
@@ -55,12 +56,12 @@ int main(int, char const**)
                         }
                         case sf::Keyboard::Left:
                         {
-                            support.setAcceleeration(-1);
+                            support.setAcceleeration(-0.5);
                             break;
                         }
                         case sf::Keyboard::Right:
                         {
-                            support.setAcceleeration(1);
+                            support.setAcceleeration(0.5);
                             break;
                         }
                         default:
@@ -89,12 +90,12 @@ int main(int, char const**)
             }
         }
         
+        support.dump();
         
         // Clear screen
         window.clear();
         GManager.DrawAllObjects();
         PManager.UpdateAllObjects();
-        
         // Update the window
         window.display();
     }
