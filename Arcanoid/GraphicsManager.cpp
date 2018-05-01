@@ -5,7 +5,7 @@
 //  Created by Кежик Кызыл-оол on 01.05.2018.
 //  Copyright © 2018 Кежик Кызыл-оол. All rights reserved.
 //
-#define AMOUNT_OF_GAME_OBJECTS 10
+#define AMOUNT_OF_GAME_OBJECTS 1000
 
 #ifndef SFML_G
 #define SFML_G
@@ -36,7 +36,7 @@ class GraphicsManager
 {
 private:
     sf::RenderWindow* window;
-    GameObject* gameobjects[AMOUNT_OF_GAME_OBJECTS];
+    GameObject* gameobjects[AMOUNT_OF_GAME_OBJECTS] = {nullptr};
     int amount_of_game_objects;
     
     
@@ -54,6 +54,7 @@ amount_of_game_objects(0)
 {
     
 }
+
 void GraphicsManager::DrawAllObjects()
 {
     for (int i = 0; i < amount_of_game_objects; i++)

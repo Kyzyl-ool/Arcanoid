@@ -6,7 +6,7 @@
 //  Copyright © 2018 Кежик Кызыл-оол. All rights reserved.
 //
 
-#define AMOUNT_OF_GAME_OBJECTS 10
+#define AMOUNT_OF_GAME_OBJECTS 1000
 #define GAME_SLOWLESS 20000
 
 #ifndef SFML_G
@@ -40,7 +40,7 @@ float dt;
 class PhysicsManager
 {
 private:
-    GameObject* gameobjects[AMOUNT_OF_GAME_OBJECTS];
+    GameObject* gameobjects[AMOUNT_OF_GAME_OBJECTS] = {nullptr};
     int amount_of_game_objects;
     
 public:

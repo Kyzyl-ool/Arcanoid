@@ -8,6 +8,7 @@
 
 #define BACKGROUND_TEXTURE_SIZE 60
 #define BACKGROUND_DISTANCE 2
+#define BACKGROUND_BORDER_THICKNESS 10
 
 #ifndef GAME_OBJECT_INCLUDED
 #define GAME_OBJECT_INCLUDED
@@ -56,18 +57,16 @@ Background::Background(int the_type)
     
     sprite.setTexture(texture);
     sprite.setTextureRect(sf::IntRect(x, y, BACKGROUND_TEXTURE_SIZE, BACKGROUND_TEXTURE_SIZE));
-    
-    sprite.setPosition(0, 0);
 }
 
 void Background::draw(sf::RenderWindow* window)
 {
     sf::Vector2u WindowSize = window->getSize();
     
-    for (int i = 0; i < WindowSize.x / BACKGROUND_TEXTURE_SIZE + 1; i++)
+    for (int i = 0; i < WindowSize.x / BACKGROUND_TEXTURE_SIZE; i++)
         for (int j = 0; j < WindowSize.y / BACKGROUND_TEXTURE_SIZE + 1; j++)
         {
-            sprite.setPosition(i*BACKGROUND_TEXTURE_SIZE, j*BACKGROUND_TEXTURE_SIZE);
+            sprite.setPosition(i*BACKGROUND_TEXTURE_SIZE + BACKGROUND_BORDER_THICKNESS, j*BACKGROUND_TEXTURE_SIZE);
             window->draw(sprite);
         }
 }

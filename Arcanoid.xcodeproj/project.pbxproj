@@ -14,6 +14,8 @@
 		176F61D02098690E0069D2F6 /* support.png in Resources */ = {isa = PBXBuildFile; fileRef = 176F61CE2098690E0069D2F6 /* support.png */; };
 		176F61D6209874CD0069D2F6 /* backgrounds.png in Resources */ = {isa = PBXBuildFile; fileRef = 176F61D5209874CD0069D2F6 /* backgrounds.png */; };
 		176F61DE20989A0C0069D2F6 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 176F61D920988BDA0069D2F6 /* ResourcePath.mm */; };
+		176F61E62098D3170069D2F6 /* blocks2.png in Resources */ = {isa = PBXBuildFile; fileRef = 176F61E52098D3160069D2F6 /* blocks2.png */; };
+		176F61E82098D7D00069D2F6 /* default_blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 176F61E72098D7D00069D2F6 /* default_blocks.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		176F61DC209891350069D2F6 /* GameObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
 		176F61E12098C6480069D2F6 /* GraphicsManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GraphicsManager.cpp; sourceTree = "<group>"; };
 		176F61E32098C6600069D2F6 /* PhysicsManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicsManager.cpp; sourceTree = "<group>"; };
+		176F61E52098D3160069D2F6 /* blocks2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blocks2.png; sourceTree = "<group>"; };
+		176F61E72098D7D00069D2F6 /* default_blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_blocks.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +93,9 @@
 		170E77A3209863E10042027C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				176F61E72098D7D00069D2F6 /* default_blocks.png */,
 				176F61DA20988BDA0069D2F6 /* ResourcePath.hpp */,
+				176F61E52098D3160069D2F6 /* blocks2.png */,
 				176F61D920988BDA0069D2F6 /* ResourcePath.mm */,
 				176F61D5209874CD0069D2F6 /* backgrounds.png */,
 				176F61CD2098690E0069D2F6 /* blocks.png */,
@@ -161,11 +167,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				176F61E62098D3170069D2F6 /* blocks2.png in Resources */,
 				170E77AB209863E10042027C /* icon.png in Resources */,
 				170E77A9209863E10042027C /* sansation.ttf in Resources */,
 				176F61D6209874CD0069D2F6 /* backgrounds.png in Resources */,
 				176F61CF2098690E0069D2F6 /* blocks.png in Resources */,
 				176F61D02098690E0069D2F6 /* support.png in Resources */,
+				176F61E82098D7D00069D2F6 /* default_blocks.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

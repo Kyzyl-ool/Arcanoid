@@ -21,15 +21,44 @@ int main(int, char const**)
     GraphicsManager GManager(&window);
     PhysicsManager  PManager;
     
-    Background b(1);
+    Background b(0);
     Support support;
-    
+
+    int space[MAX_BLOCKS_Y][MAX_BLOCKS_X] =
+    {
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}
+    };
+    Brick* bricks[MAX_BLOCKS_X*MAX_BLOCKS_Y] = {nullptr};
+    for (int i = 0; i < MAX_BLOCKS_Y; i++)
+        for (int j = 0; j < MAX_BLOCKS_X; j++)
+        {
+            if (space[i][j] != -1)
+            {
+                bricks[i*MAX_BLOCKS_X + (j % MAX_BLOCKS_X)] = new Brick(space[i][j], j*BLOCK_WIDTH, i*BLOCK_HEIGHT);
+            }
+        }
     
     //Loading all game objects to game manager's array
     GManager.AddGameObject(&b);
     GManager.AddGameObject(&support);
-    
     PManager.AddGameObject(&support);
+    for (int i = 0; i < MAX_BLOCKS_Y*MAX_BLOCKS_X; i++)
+    {
+        if (bricks[i] != nullptr)
+        {
+            GManager.AddGameObject(bricks[i]);
+            PManager.AddGameObject(bricks[i]);
+        }
+    }
     
     // Start the game loop
     while (window.isOpen())
@@ -39,7 +68,8 @@ int main(int, char const**)
         while (window.pollEvent(event))
         {
             // Close window: exit
-            if (event.type == sf::Event::Closed) {
+            if (event.type == sf::Event::Closed)
+            {
                 window.close();
             }
             
@@ -91,7 +121,7 @@ int main(int, char const**)
             }
         }
         
-        support.dump();
+//        support.dump();
         
         // Clear screen
         window.clear();
