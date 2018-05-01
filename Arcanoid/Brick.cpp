@@ -11,4 +11,9 @@
 #include <SFML/Graphics.hpp>
 #endif
 
+#ifndef GAME_OBJECT_INCLUDED
+#define GAME_OBJECT_INCLUDED
+#include "GameObject.cpp"
+#endif
+
 

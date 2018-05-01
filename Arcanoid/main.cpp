@@ -15,11 +15,19 @@ int main(int, char const**)
     
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     
-    Background b(64);
     
-    GameManager Manager(&window);
-    Manager.AddSprite(&b);
+    //Creating main game objects
+    GraphicsManager GManager(&window);
+    PhysicsManager  PManager;
     
+    Background b(0);
+    Support support;
+    
+    
+    //Loading all game objects to game manager's array
+    GManager.AddSprite(&b);
+    GManager.AddSprite(&support);
+    PManager.AddGameObject(&support);
     
     // Start the game loop
     while (window.isOpen())
@@ -34,15 +42,58 @@ int main(int, char const**)
             }
             
             // Escape pressed: exit
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
-                window.close();
+            switch (event.type)
+            {
+                case sf::Event::KeyPressed:
+                {
+                    switch(event.key.code)
+                    {
+                        case sf::Keyboard::Escape:
+                        {
+                            window.close();
+                            break;
+                        }
+                        case sf::Keyboard::Left:
+                        {
+                            support.setAcceleeration(-1);
+                            break;
+                        }
+                        case sf::Keyboard::Right:
+                        {
+                            support.setAcceleeration(1);
+                            break;
+                        }
+                        default:
+                        {
+                            break;
+                        }
+                    }
+                    break;
+                }
+                case sf::Event::KeyReleased:
+                {
+                    switch (event.key.code)
+                    {
+                        case sf::Keyboard::Left:
+                        case sf::Keyboard::Right:
+                        {
+                            support.setAcceleeration(0);
+                            support.reduceVelocity();
+                            break;
+                        }
+                        default: break;
+                    }
+                    break;
+                }
+                default: break;
             }
         }
         
+        
         // Clear screen
         window.clear();
-        
-        Manager.DrawAllObjects();
+        GManager.DrawAllObjects();
+        PManager.UpdateAllObjects();
         
         // Update the window
         window.display();

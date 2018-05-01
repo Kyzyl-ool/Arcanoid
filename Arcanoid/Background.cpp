@@ -9,7 +9,10 @@
 #define BACKGROUND_TEXTURE_SIZE 60
 #define BACKGROUND_DISTANCE 2
 
+#ifndef GAME_OBJECT_INCLUDED
+#define GAME_OBJECT_INCLUDED
 #include "GameObject.cpp"
+#endif
 
 #ifndef SFML_G
 #define SFML_G

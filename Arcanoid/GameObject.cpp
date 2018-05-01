@@ -11,6 +11,8 @@
 #include <SFML/Graphics.hpp>
 #endif
 
+#include <iostream>
+
 class GameObject
 {
 protected:
@@ -19,8 +21,8 @@ protected:
     sf::Texture texture;
     
 public:
-    void draw();
     sf::Sprite* GetSprite();
+    virtual void update(float) {;}
 //    GameObject();
 //    ~GameObject();
 };
