@@ -15,6 +15,9 @@
 		170E77B8209868970042027C /* Support.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 170E77B7209868970042027C /* Support.cpp */; };
 		176F61CF2098690E0069D2F6 /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 176F61CD2098690E0069D2F6 /* blocks.png */; };
 		176F61D02098690E0069D2F6 /* support.png in Resources */ = {isa = PBXBuildFile; fileRef = 176F61CE2098690E0069D2F6 /* support.png */; };
+		176F61D420986D0D0069D2F6 /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176F61D320986D0D0069D2F6 /* Background.cpp */; };
+		176F61D6209874CD0069D2F6 /* backgrounds.png in Resources */ = {isa = PBXBuildFile; fileRef = 176F61D5209874CD0069D2F6 /* backgrounds.png */; };
+		176F61D820987A500069D2F6 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176F61D720987A500069D2F6 /* Game.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		170E77B7209868970042027C /* Support.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Support.cpp; sourceTree = "<group>"; };
 		176F61CD2098690E0069D2F6 /* blocks.png */ = {isa = PBXFileReference; explicitFileType = image.png; path = blocks.png; sourceTree = "<group>"; };
 		176F61CE2098690E0069D2F6 /* support.png */ = {isa = PBXFileReference; explicitFileType = image.png; path = support.png; sourceTree = "<group>"; };
+		176F61D320986D0D0069D2F6 /* Background.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Background.cpp; sourceTree = "<group>"; };
+		176F61D5209874CD0069D2F6 /* backgrounds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgrounds.png; sourceTree = "<group>"; };
+		176F61D720987A500069D2F6 /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +70,10 @@
 				170E779E209863E10042027C /* ResourcePath.mm */,
 				170E77A0209863E10042027C /* ResourcePath.hpp */,
 				170E77A1209863E10042027C /* main.cpp */,
+				176F61D720987A500069D2F6 /* Game.cpp */,
 				170E77B5209868700042027C /* Brick.cpp */,
 				170E77B7209868970042027C /* Support.cpp */,
+				176F61D320986D0D0069D2F6 /* Background.cpp */,
 				170E77A3209863E10042027C /* Resources */,
 				170E779C209863E10042027C /* Supporting Files */,
 			);
@@ -83,6 +91,7 @@
 		170E77A3209863E10042027C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				176F61D5209874CD0069D2F6 /* backgrounds.png */,
 				176F61CD2098690E0069D2F6 /* blocks.png */,
 				176F61CE2098690E0069D2F6 /* support.png */,
 				170E77A8209863E10042027C /* sansation.ttf */,
@@ -154,6 +163,7 @@
 			files = (
 				170E77AB209863E10042027C /* icon.png in Resources */,
 				170E77A9209863E10042027C /* sansation.ttf in Resources */,
+				176F61D6209874CD0069D2F6 /* backgrounds.png in Resources */,
 				176F61CF2098690E0069D2F6 /* blocks.png in Resources */,
 				176F61D02098690E0069D2F6 /* support.png in Resources */,
 			);
@@ -185,6 +195,8 @@
 				170E77B6209868700042027C /* Brick.cpp in Sources */,
 				170E77B8209868970042027C /* Support.cpp in Sources */,
 				170E77A2209863E10042027C /* main.cpp in Sources */,
+				176F61D820987A500069D2F6 /* Game.cpp in Sources */,
+				176F61D420986D0D0069D2F6 /* Background.cpp in Sources */,
 				170E779F209863E10042027C /* ResourcePath.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
