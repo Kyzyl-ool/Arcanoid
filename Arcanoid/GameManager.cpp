@@ -26,9 +26,10 @@ private:
     
 public:
     GameManager(sf::RenderWindow* window_pointer);
-//    ~GameManager();
+    //    ~GameManager();
     
     void AddSprite(sf::Sprite* spr);
+    void AddSprite(GameObject* obj);
     void DrawAllObjects();
 };
 
@@ -51,3 +52,9 @@ void GameManager::DrawAllObjects()
         window->draw(*Sprites[i]);
     }
 }
+
+void GameManager::AddSprite(GameObject* obj)
+{
+    Sprites[amount_of_game_objects++] = obj->GetSprite();
+}
+

@@ -6,6 +6,9 @@
 //  Copyright © 2018 Кежик Кызыл-оол. All rights reserved.
 //
 
+#define BACKGROUND_TEXTURE_SIZE 60
+#define BACKGROUND_DISTANCE 2
+
 #include "GameObject.cpp"
 
 #ifndef SFML_G
@@ -15,42 +18,42 @@
 
 
 #include <string>
-
-
-typedef enum background_types
-{
-    BACKGROUND_DEFAULT = 0,
-    
-}background_type;
-
+#include <iostream>
 
 
 class Background: public GameObject
 {
 private:
-    background_type type;
+    int type;
 
 public:
-    Background(background_type the_type);
+    Background(int the_type);
     ~Background();
 };
 
-int get_background_coord_x(background_type the_type)
+int get_background_coord_x(int the_type)
 {
-    return 0;
+    return (((the_type % 8)+1)*BACKGROUND_DISTANCE + BACKGROUND_TEXTURE_SIZE*(the_type % 8));
 }
 
-int get_background_coord_y(background_type the_type)
+int get_background_coord_y(int the_type)
 {
-    return 0;
+    return ((the_type / 8)+1)*BACKGROUND_DISTANCE + BACKGROUND_TEXTURE_SIZE*(the_type / 8);
 }
 
-Background::Background(background_type the_type)
+Background::Background(int the_type)
 {
     type = the_type;
+    x = get_background_coord_x(type);
+    y = get_background_coord_y(type);
+    
+    
     texture.loadFromFile("backgrounds.png");
+    
     sprite.setTexture(texture);
-    sprite.setPosition(get_background_coord_x(type), get_background_coord_y(type));
+    sprite.setTextureRect(sf::IntRect(x, y, BACKGROUND_TEXTURE_SIZE, BACKGROUND_TEXTURE_SIZE));
+    
+    sprite.setPosition(0, 0);
 }
 
 Background::~Background()

@@ -28,10 +28,10 @@
 		176F61CE2098690E0069D2F6 /* support.png */ = {isa = PBXFileReference; explicitFileType = image.png; path = support.png; sourceTree = "<group>"; };
 		176F61D320986D0D0069D2F6 /* Background.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Background.cpp; sourceTree = "<group>"; };
 		176F61D5209874CD0069D2F6 /* backgrounds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgrounds.png; sourceTree = "<group>"; };
-		176F61D720987A500069D2F6 /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
 		176F61D920988BDA0069D2F6 /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		176F61DA20988BDA0069D2F6 /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		176F61DC209891350069D2F6 /* GameObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
+		176F61DF2098ACFC0069D2F6 /* GameManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameManager.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +64,8 @@
 		170E779B209863E10042027C /* Arcanoid */ = {
 			isa = PBXGroup;
 			children = (
+				176F61DF2098ACFC0069D2F6 /* GameManager.cpp */,
 				170E77A1209863E10042027C /* main.cpp */,
-				176F61D720987A500069D2F6 /* Game.cpp */,
 				170E77B5209868700042027C /* Brick.cpp */,
 				176F61DC209891350069D2F6 /* GameObject.cpp */,
 				170E77B7209868970042027C /* Support.cpp */,

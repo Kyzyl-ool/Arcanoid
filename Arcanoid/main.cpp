@@ -1,4 +1,4 @@
-#include "Game.cpp"
+#include "GameManager.cpp"
 
 
 int main(int, char const**)
@@ -15,10 +15,10 @@ int main(int, char const**)
     
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     
-    Background b(BACKGROUND_DEFAULT);
+    Background b(64);
     
     GameManager Manager(&window);
-    Manager.AddSprite(b.GetSprite());
+    Manager.AddSprite(&b);
     
     
     // Start the game loop
