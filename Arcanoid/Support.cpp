@@ -36,7 +36,6 @@ class Support: public GameObject
 private:
     int length;
     int screen_size;
-    double acceleration;
     double velocity;
     
 
@@ -45,7 +44,6 @@ public:
     
     double getVelocity();
     
-    void setAcceleeration(double acc);
     void setVelocity(double v);
     
     void update(float dt);
@@ -65,22 +63,6 @@ screen_size(DEFAULT_SCREEN_WIDTH)
     sprite.setTextureRect(sf::IntRect(0, 0, 44, 22));
 }
 
-void Support::setAcceleeration(double acc)
-{
-    if (acceleration == 0)
-    {
-        if (acc > 0)
-        {
-            velocity = 10;
-        }
-        else if (acc < 0)
-        {
-            velocity = -10;
-        }
-    }
-    acceleration = acc;
-}
-
 double Support::getVelocity()
 {
     return velocity;
@@ -88,7 +70,6 @@ double Support::getVelocity()
 
 void Support::update(float dt)
 {
-    velocity += acceleration*dt;
     if (x >= 0 && x + length <= screen_size)
         x += velocity*dt;
     else
@@ -105,7 +86,6 @@ void Support::update(float dt)
 
 void Support::dump()
 {
-    std::cout << "acc: " << acceleration << std::endl;
     std::cout << "vel: " << velocity << std::endl;
 }
 

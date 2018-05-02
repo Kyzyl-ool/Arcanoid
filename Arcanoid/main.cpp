@@ -56,12 +56,12 @@ int main(int, char const**)
                         }
                         case sf::Keyboard::Left:
                         {
-                            support.setAcceleeration(-0.5);
+                            support.setVelocity(-20);
                             break;
                         }
                         case sf::Keyboard::Right:
                         {
-                            support.setAcceleeration(0.5);
+                            support.setVelocity(20);
                             break;
                         }
                         default:
@@ -78,7 +78,6 @@ int main(int, char const**)
                         case sf::Keyboard::Left:
                         case sf::Keyboard::Right:
                         {
-                            support.setAcceleeration(0);
                             support.reduceVelocity();
                             break;
                         }
