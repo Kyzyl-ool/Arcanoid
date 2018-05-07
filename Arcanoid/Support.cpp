@@ -57,6 +57,8 @@ Support::Support():
 length(SUPPORT_NORMAL),
 screen_size(DEFAULT_SCREEN_WIDTH)
 {
+    type = SUPPORT;
+    
     x = 0;
     y = DEFAULT_SCREEN_HEIGHT - SUPPORT_HEIGHT;
     
@@ -100,11 +102,7 @@ void Support::dump()
 //КОРЯВАЯ ФУНКЦИЯ
 void Support::reduceVelocity()
 {
-    velocity /= 4;
-    if (velocity < SUPPORT_EPSILON)
-    {
-        velocity = 0;
-    }
+    velocity = velocity / 4;
 }
 
 void Support::setVelocity(double v)

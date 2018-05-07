@@ -34,6 +34,9 @@ public:
     
     void update();
     void draw(sf::RenderWindow* window);
+    void collideResponse(GameObject* obj);
+    
+    void getDamage();
 };
 
 int get_brick_coord_x(int sort)
@@ -49,6 +52,8 @@ Brick::Brick(int the_sort, int ix, int iy):
 sort(the_sort),
 health(3)
 {
+    type = BLOCK;
+    
     x = ix + 10;
     y = iy;
     x2 = x + BLOCK_WIDTH;
@@ -76,4 +81,22 @@ void Brick::update()
 void Brick::draw(sf::RenderWindow* window)
 {
     window->draw(sprite);
+}
+
+void Brick::getDamage()
+{
+    if (health > 0)
+        health--;
+}
+
+void Brick::collideResponse(GameObject *obj)
+{
+    switch (obj->who())
+    {
+        case BALL:
+            getDamage();
+            break;
+        default:
+            break;
+    }
 }

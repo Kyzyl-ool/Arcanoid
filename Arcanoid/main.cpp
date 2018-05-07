@@ -21,7 +21,7 @@ int main(int, char const**)
     GraphicsManager GManager(&window);
     PhysicsManager  PManager;
     
-    Background b(0);
+    Background b(60);
     Support support;
     Ball ball;
 
@@ -52,6 +52,7 @@ int main(int, char const**)
     GManager.AddGameObject(&b);
     GManager.AddGameObject(&support);
     GManager.AddGameObject(&ball);
+    
     PManager.AddGameObject(&support);
     PManager.AddGameObject(&ball);
     for (int i = 0; i < MAX_BLOCKS_Y*MAX_BLOCKS_X; i++)
@@ -62,7 +63,6 @@ int main(int, char const**)
             PManager.AddGameObject(bricks[i]);
         }
     }
-    
     // Start the game loop
     while (window.isOpen())
     {
@@ -70,15 +70,12 @@ int main(int, char const**)
         sf::Event event;
         while (window.pollEvent(event))
         {
-            // Close window: exit
-            if (event.type == sf::Event::Closed)
-            {
-                window.close();
-            }
-            
-            // Escape pressed: exit
             switch (event.type)
             {
+                case sf::Event::Closed:
+                {
+                    window.close();
+                }
                 case sf::Event::KeyPressed:
                 {
                     switch(event.key.code)
@@ -88,14 +85,15 @@ int main(int, char const**)
                             window.close();
                             break;
                         }
-                        case sf::Keyboard::Left:
-                        {
-                            support.setVelocity(-20);
-                            break;
-                        }
+                        
                         case sf::Keyboard::Right:
                         {
                             support.setVelocity(20);
+                            break;
+                        }
+                        case sf::Keyboard::Left:
+                        {
+                            support.setVelocity(-20);
                             break;
                         }
                         default:
@@ -112,19 +110,21 @@ int main(int, char const**)
                         case sf::Mouse::Left:
                         {
                             ball.release();
+                            ball.setVelocity(0, -10);
                             break;
                         }
                         default: break;
                     }
+                    break;
                 }
                 case sf::Event::KeyReleased:
                 {
                     switch (event.key.code)
                     {
-                        case sf::Keyboard::Left:
                         case sf::Keyboard::Right:
+                        case sf::Keyboard::Left:
                         {
-                            support.reduceVelocity();
+                            support.setVelocity(0);
                             break;
                         }
                         default: break;

@@ -5,6 +5,14 @@
 //  Created by Кежик Кызыл-оол on 01.05.2018.
 //  Copyright © 2018 Кежик Кызыл-оол. All rights reserved.
 //
+
+//#define DEBUG
+
+#ifdef DEBUG
+int debug_fb = 0;
+int debug_lr = 0;
+#endif
+
 #ifndef SFML_G
 #define SFML_G
 #include <SFML/Graphics.hpp>
@@ -15,7 +23,23 @@
 #include "GameObject.cpp"
 #endif
 
+#ifndef BRICK_INCLUDED
+#define BRICK_INCLUDED
+#include "Brick.cpp"
+#endif
+
+#include <iostream>
+
+
 #define BALL_SIZE 44
+
+enum collide_flag
+{
+    FRONT,
+    LEFT,
+    RIGHT,
+    BACK
+};
 
 class Ball: public GameObject
 {
@@ -23,15 +47,22 @@ private:
     double Vx, Vy;
     int type;
     bool free = false;
+    collide_flag f;
     
     
 public:
     Ball();
     
+    void setVelocity(double iVx, double iVy);
+    
     void update(float dt);
     void draw(sf::RenderWindow* window);
+    bool collideCheck(GameObject* obj);
+    void collideResponse(GameObject* obj);
     
     void release();
+    
+    void changeVelocityDependedOnCollide();
 };
 
 int get_ball_coord_x(int the_type)
@@ -46,6 +77,7 @@ int get_ball_coord_y(int the_type)
 
 Ball::Ball()
 {
+    type = BALL;
     texture.loadFromFile("blocks2.png");
     sprite.setTexture(texture);
     sprite.setTextureRect(sf::IntRect(
@@ -88,4 +120,80 @@ void Ball::update(float dt)
 void Ball::release()
 {
     free = true;
+}
+
+void Ball::setVelocity(double iVx, double iVy)
+{
+    Vx = iVx;
+    Vy = iVy;
+}
+
+void Ball::collideResponse(GameObject *obj)
+{
+    switch (obj->who()) {
+        case BLOCK:
+            changeVelocityDependedOnCollide();
+            break;
+            
+        default:
+            break;
+    }
+}
+
+void Ball::changeVelocityDependedOnCollide()
+{
+    switch (f)
+    {
+        case FRONT:
+        case BACK:
+            Vy = -Vy;
+#ifdef DEBUG
+            printf("front or back, fb = %d\n", debug_fb);
+            debug_fb++;
+#endif
+            break;
+        case LEFT:
+        case RIGHT:
+            Vx = -Vx;
+#ifdef DEBUG
+            printf("left or right, lr = %d\n", debug_lr);
+            debug_lr++;
+#endif
+            break;
+        default:
+            break;
+    }
+}
+
+bool Ball::collideCheck(GameObject* obj)
+{
+    switch (obj->who()) {
+        case BLOCK:
+        {
+            int x0 = obj->getX();
+            int y0 = obj->getY();
+            double katet1 = x0 - x + (BLOCK_WIDTH - BALL_SIZE)/2;
+            double katet2 = y0 - y + (BLOCK_HEIGHT - BALL_SIZE)/2;
+//            if (katet1*katet1 + katet2*katet2 <= BLOCK_WIDTH*BLOCK_WIDTH)
+            {
+                if (abs(y - (y0 + BLOCK_HEIGHT)) <= (BLOCK_HEIGHT + BALL_SIZE)/2)
+                    if (Vy > 0)
+                    {
+                        f = BACK;
+                        return true;
+                    }
+                    else
+                    {
+                        f = FRONT;
+                        return true;
+                    }
+                
+                else return false;
+            }
+//            else return false;
+            break;
+        }
+        default:
+            break;
+    }
 }

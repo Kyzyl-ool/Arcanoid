@@ -39,7 +39,7 @@
 #include "Ball.cpp"
 #endif
 
-float dt;
+const float dt = 0.01;
 //sf::Clock clocks;
 
 class PhysicsManager
@@ -71,11 +71,21 @@ void PhysicsManager::UpdateAllObjects()
     //    dt = clocks.getElapsedTime().asMicroseconds();
     //    clocks.restart();
     //    dt /= GAME_SLOWLESS;
-    dt = 0.1;
     
     //    std::cout << "dt = " << dt << std::endl;
+    
+    
+    for (int i = 0; i < amount_of_game_objects; i++)
+        for (int j = i + 1; j < amount_of_game_objects; j++)
+        {
+            if (gameobjects[i]->collideCheck(gameobjects[j]))
+            {
+                gameobjects[i]->collideResponse(gameobjects[j]);
+            }
+        }
     for (int i = 0; i < amount_of_game_objects; i++)
     {
         gameobjects[i]->update(dt);
     }
+    
 }
