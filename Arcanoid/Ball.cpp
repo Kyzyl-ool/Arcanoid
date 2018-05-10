@@ -5,16 +5,6 @@
 //  Created by Кежик Кызыл-оол on 01.05.2018.
 //  Copyright © 2018 Кежик Кызыл-оол. All rights reserved.
 //
-<<<<<<< HEAD
-
-//#define DEBUG
-
-#ifdef DEBUG
-int debug_fb = 0;
-int debug_lr = 0;
-=======
->>>>>>> master
-#endif
 
 #ifndef SFML_G
 #define SFML_G
@@ -26,7 +16,6 @@ int debug_lr = 0;
 #include "GameObject.cpp"
 #endif
 
-<<<<<<< HEAD
 #ifndef BRICK_INCLUDED
 #define BRICK_INCLUDED
 #include "Brick.cpp"
@@ -34,17 +23,13 @@ int debug_lr = 0;
 
 #include <iostream>
 
-
-#define BALL_SIZE 44
-=======
->>>>>>> master
-
 enum collide_flag
 {
+    NULL_DESTINATION,
     FRONT,
     LEFT,
     RIGHT,
-    BACK
+    BACK,
 };
 
 class Ball: public GameObject
@@ -81,14 +66,11 @@ int get_ball_coord_y(int the_type)
     return 588+(the_type/3)*BALL_SIZE*5;
 }
 
-Ball::Ball()
+Ball::Ball():
+f(NULL_DESTINATION)
 {
-<<<<<<< HEAD
     type = BALL;
-    texture.loadFromFile("blocks2.png");
-=======
     texture.loadFromFile(BLOCKS_AND_BALLS_FILE);
->>>>>>> master
     sprite.setTexture(texture);
     sprite.setTextureRect(sf::IntRect(
                                       get_ball_coord_x(0),
@@ -143,8 +125,8 @@ void Ball::collideResponse(GameObject *obj)
     switch (obj->who()) {
         case BLOCK:
             changeVelocityDependedOnCollide();
+            f = NULL_DESTINATION;
             break;
-            
         default:
             break;
     }
@@ -152,24 +134,37 @@ void Ball::collideResponse(GameObject *obj)
 
 void Ball::changeVelocityDependedOnCollide()
 {
+//    std::cout << 123123 << std::endl;
     switch (f)
     {
         case FRONT:
+        {
+            std::cout << 11111111 << std::endl;
+            if (Vy < 0)
+                Vy = -Vy;
+            break;
+        }
         case BACK:
-            Vy = -Vy;
-#ifdef DEBUG
-            printf("front or back, fb = %d\n", debug_fb);
-            debug_fb++;
-#endif
+        {
+            std::cout << 22222222 << std::endl;
+            if (Vy > 0)
+                Vy = -Vy;
             break;
+        }
         case LEFT:
-        case RIGHT:
-            Vx = -Vx;
-#ifdef DEBUG
-            printf("left or right, lr = %d\n", debug_lr);
-            debug_lr++;
-#endif
+        {
+            std::cout << 33333333 << std::endl;
+            if (Vx > 0)
+                Vx = - Vx;
             break;
+        }
+        case RIGHT:
+        {
+            std::cout << 444444444 << std::endl;
+            if (Vx < 0)
+                Vx = -Vx;
+            break;
+        }
         default:
             break;
     }
@@ -180,27 +175,22 @@ bool Ball::collideCheck(GameObject* obj)
     switch (obj->who()) {
         case BLOCK:
         {
-            int x0 = obj->getX();
-            int y0 = obj->getY();
-            double katet1 = x0 - x + (BLOCK_WIDTH - BALL_SIZE)/2;
-            double katet2 = y0 - y + (BLOCK_HEIGHT - BALL_SIZE)/2;
+            double x0 = obj->getX();
+            double y0 = obj->getY();
+//            double katet_x = abs(x + BALL_SIZE/2 - x0);
+            double katet_y = (y - BLOCK_HEIGHT - y0);
+            
+            std::cout << katet_y << std::endl;
+//            std::cout << katet_x - (BLOCK_WIDTH+BALL_SIZE)/2 << std::endl;
 //            if (katet1*katet1 + katet2*katet2 <= BLOCK_WIDTH*BLOCK_WIDTH)
-            {
-                if (abs(y - (y0 + BLOCK_HEIGHT)) <= (BLOCK_HEIGHT + BALL_SIZE)/2)
-                    if (Vy > 0)
-                    {
-                        f = BACK;
-                        return true;
-                    }
-                    else
-                    {
-                        f = FRONT;
-                        return true;
-                    }
-                
-                else return false;
-            }
-//            else return false;
+            
+                if (katet_y <= 0)
+                {
+                    f = FRONT;
+                    return true;
+                }
+                else
+                    return false;
             break;
         }
         default:

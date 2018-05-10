@@ -30,7 +30,7 @@ enum GameObject_t
 class GameObject
 {
 protected:
-    int x, y;
+    double x, y;
     GameObject_t type;
     sf::Sprite sprite;
     sf::Texture texture;
@@ -42,8 +42,8 @@ public:
     virtual bool collideCheck(GameObject* obj) {;}
     virtual void collideResponse(GameObject* obj) {;}
     
-    int getX();
-    int getY();
+    double getX();
+    double getY();
     
     GameObject_t who();
 //    GameObject();
@@ -60,12 +60,12 @@ GameObject_t GameObject::who()
     return type;
 }
 
-int GameObject::getX()
+double GameObject::getX()
 {
     return x;
 }
 
-int GameObject::getY()
+double GameObject::getY()
 {
     return y;
 }

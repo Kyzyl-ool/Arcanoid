@@ -43,7 +43,7 @@
 #include "Ball.cpp"
 #endif
 
-const float dt = 0.01;
+const float dt = 0.1;
 //sf::Clock clocks;
 
 class PhysicsManager
