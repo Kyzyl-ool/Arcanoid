@@ -5,6 +5,11 @@
 //  Created by Кежик Кызыл-оол on 01.05.2018.
 //  Copyright © 2018 Кежик Кызыл-оол. All rights reserved.
 //
+#ifndef DEFINES_INCLUDED
+#define DEFINED_INCLUDED
+#include "defines.cpp"
+#endif
+
 #ifndef SFML_G
 #define SFML_G
 #include <SFML/Graphics.hpp>
@@ -15,7 +20,6 @@
 #include "GameObject.cpp"
 #endif
 
-#define BALL_SIZE 44
 
 class Ball: public GameObject
 {
@@ -46,7 +50,7 @@ int get_ball_coord_y(int the_type)
 
 Ball::Ball()
 {
-    texture.loadFromFile("blocks2.png");
+    texture.loadFromFile(BLOCKS_AND_BALLS_FILE);
     sprite.setTexture(texture);
     sprite.setTextureRect(sf::IntRect(
                                       get_ball_coord_x(0),

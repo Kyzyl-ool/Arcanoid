@@ -5,7 +5,10 @@
 //  Created by Кежик Кызыл-оол on 01.05.2018.
 //  Copyright © 2018 Кежик Кызыл-оол. All rights reserved.
 //
-#define AMOUNT_OF_GAME_OBJECTS 1000
+#ifndef DEFINES_INCLUDED
+#define DEFINED_INCLUDED
+#include "defines.cpp"
+#endif
 
 #ifndef SFML_G
 #define SFML_G
@@ -36,6 +39,8 @@
 #define BALL_INCLUDED
 #include "Ball.cpp"
 #endif
+
+#include <cassert>
 
 class GraphicsManager
 {
@@ -70,6 +75,7 @@ void GraphicsManager::DrawAllObjects()
 
 void GraphicsManager::AddGameObject(GameObject *obj)
 {
+    assert(amount_of_game_objects <= AMOUNT_OF_GAME_OBJECTS);
     gameobjects[amount_of_game_objects++] = obj;
 }
 

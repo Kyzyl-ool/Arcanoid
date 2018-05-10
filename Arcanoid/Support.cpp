@@ -5,6 +5,11 @@
 //  Created by Кежик Кызыл-оол on 01.05.2018.
 //  Copyright © 2018 Кежик Кызыл-оол. All rights reserved.
 //
+#ifndef DEFINES_INCLUDED
+#define DEFINED_INCLUDED
+#include "defines.cpp"
+#endif
+
 #ifndef SFML_G
 #define SFML_G
 #include <SFML/Graphics.hpp>
@@ -15,11 +20,7 @@
 #include "GameObject.cpp"
 #endif
 
-#define SUPPORT_HEIGHT 22
-#define SUPPORT_EPSILON 4
 
-#define DEFAULT_SCREEN_WIDTH 800
-#define DEFAULT_SCREEN_HEIGHT 600
 
 enum support_length
 {
@@ -60,7 +61,7 @@ screen_size(DEFAULT_SCREEN_WIDTH)
     x = 0;
     y = DEFAULT_SCREEN_HEIGHT - SUPPORT_HEIGHT;
     
-    texture.loadFromFile("support.png");
+    texture.loadFromFile(BOARD_FILE);
     sprite.setTexture(texture);
     sprite.setTextureRect(sf::IntRect(0, 0, 44, 22));
     
