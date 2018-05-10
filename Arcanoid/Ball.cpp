@@ -139,28 +139,28 @@ void Ball::changeVelocityDependedOnCollide()
     {
         case FRONT:
         {
-            std::cout << 11111111 << std::endl;
+//            std::cout << 11111111 << std::endl;
             if (Vy < 0)
                 Vy = -Vy;
             break;
         }
         case BACK:
         {
-            std::cout << 22222222 << std::endl;
+//            std::cout << 22222222 << std::endl;
             if (Vy > 0)
                 Vy = -Vy;
             break;
         }
         case LEFT:
         {
-            std::cout << 33333333 << std::endl;
+//            std::cout << 33333333 << std::endl;
             if (Vx > 0)
                 Vx = - Vx;
             break;
         }
         case RIGHT:
         {
-            std::cout << 444444444 << std::endl;
+//            std::cout << 444444444 << std::endl;
             if (Vx < 0)
                 Vx = -Vx;
             break;
@@ -180,7 +180,7 @@ bool Ball::collideCheck(GameObject* obj)
 //            double katet_x = abs(x + BALL_SIZE/2 - x0);
             double katet_y = (y - BLOCK_HEIGHT - y0);
             
-            std::cout << katet_y << std::endl;
+//            std::cout << katet_y << std::endl;
 //            std::cout << katet_x - (BLOCK_WIDTH+BALL_SIZE)/2 << std::endl;
 //            if (katet1*katet1 + katet2*katet2 <= BLOCK_WIDTH*BLOCK_WIDTH)
             
