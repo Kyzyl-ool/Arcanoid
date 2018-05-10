@@ -6,10 +6,9 @@
 //  Copyright © 2018 Кежик Кызыл-оол. All rights reserved.
 //
 
-#ifndef DEFINES_INCLUDED
-#define DEFINED_INCLUDED
-#include "defines.cpp"
-#endif
+#define BACKGROUND_TEXTURE_SIZE 60
+#define BACKGROUND_DISTANCE 2
+#define BACKGROUND_BORDER_THICKNESS 10
 
 #ifndef GAME_OBJECT_INCLUDED
 #define GAME_OBJECT_INCLUDED
@@ -54,7 +53,7 @@ Background::Background(int the_type)
     y = get_background_coord_y(sort);
     
     
-    texture.loadFromFile(BACKGROUNDS_FILE);
+    texture.loadFromFile("backgrounds.png");
     
     sprite.setTexture(texture);
     sprite.setTextureRect(sf::IntRect(x, y, BACKGROUND_TEXTURE_SIZE, BACKGROUND_TEXTURE_SIZE));

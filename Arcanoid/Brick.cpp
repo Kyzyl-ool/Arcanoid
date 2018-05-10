@@ -6,11 +6,6 @@
 //  Copyright © 2018 Кежик Кызыл-оол. All rights reserved.
 //
 
-#ifndef DEFINES_INCLUDED
-#define DEFINED_INCLUDED
-#include "defines.cpp"
-#endif
-
 #ifndef SFML_G
 #define SFML_G
 #include <SFML/Graphics.hpp>
@@ -20,6 +15,12 @@
 #define GAME_OBJECT_INCLUDED
 #include "GameObject.cpp"
 #endif
+
+#define MAX_BLOCKS_X 13
+#define MAX_BLOCKS_Y 10
+
+#define BLOCK_HEIGHT 30
+#define BLOCK_WIDTH 60
 
 class Brick: public GameObject
 {
@@ -57,7 +58,7 @@ health(3)
     y = iy;
     x2 = x + BLOCK_WIDTH;
     y2 = y + BLOCK_HEIGHT;
-    texture.loadFromFile(DEFAULT_BLOCKS_FILE);
+    texture.loadFromFile("default_blocks.png");
     sprite.setTexture(texture);
     sprite.setTextureRect(sf::IntRect(
                                       get_brick_coord_x(sort),
@@ -80,8 +81,6 @@ void Brick::update()
 void Brick::draw(sf::RenderWindow* window)
 {
     window->draw(sprite);
-    
-    
 }
 
 void Brick::getDamage()
