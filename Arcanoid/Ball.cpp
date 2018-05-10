@@ -5,12 +5,15 @@
 //  Created by Кежик Кызыл-оол on 01.05.2018.
 //  Copyright © 2018 Кежик Кызыл-оол. All rights reserved.
 //
+<<<<<<< HEAD
 
 //#define DEBUG
 
 #ifdef DEBUG
 int debug_fb = 0;
 int debug_lr = 0;
+=======
+>>>>>>> master
 #endif
 
 #ifndef SFML_G
@@ -23,6 +26,7 @@ int debug_lr = 0;
 #include "GameObject.cpp"
 #endif
 
+<<<<<<< HEAD
 #ifndef BRICK_INCLUDED
 #define BRICK_INCLUDED
 #include "Brick.cpp"
@@ -32,6 +36,8 @@ int debug_lr = 0;
 
 
 #define BALL_SIZE 44
+=======
+>>>>>>> master
 
 enum collide_flag
 {
@@ -77,8 +83,12 @@ int get_ball_coord_y(int the_type)
 
 Ball::Ball()
 {
+<<<<<<< HEAD
     type = BALL;
     texture.loadFromFile("blocks2.png");
+=======
+    texture.loadFromFile(BLOCKS_AND_BALLS_FILE);
+>>>>>>> master
     sprite.setTexture(texture);
     sprite.setTextureRect(sf::IntRect(
                                       get_ball_coord_x(0),

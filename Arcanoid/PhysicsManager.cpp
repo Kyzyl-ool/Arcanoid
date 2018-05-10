@@ -6,8 +6,12 @@
 //  Copyright © 2018 Кежик Кызыл-оол. All rights reserved.
 //
 
-#define AMOUNT_OF_GAME_OBJECTS 1000
-#define GAME_SLOWLESS 20000
+
+
+#ifndef DEFINES_INCLUDED
+#define DEFINED_INCLUDED
+#include "defines.cpp"
+#endif
 
 #ifndef SFML_G
 #define SFML_G

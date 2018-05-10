@@ -6,6 +6,11 @@
 //  Copyright © 2018 Кежик Кызыл-оол. All rights reserved.
 //
 
+#ifndef DEFINES_INCLUDED
+#define DEFINED_INCLUDED
+#include "defines.cpp"
+#endif
+
 #ifndef SFML_G
 #define SFML_G
 #include <SFML/Graphics.hpp>
