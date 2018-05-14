@@ -21,6 +21,11 @@
 #include "Brick.cpp"
 #endif
 
+#ifndef SUPPORT_INCLUDED
+#define SUPPORT_INCLUDED
+#include "Support.cpp"
+#endif
+
 #include <iostream>
 
 enum collide_flag
@@ -212,6 +217,20 @@ bool Ball::collideCheck(GameObject* obj)
                 }
                 else
                     return false;
+            break;
+        }
+        case SUPPORT:
+        {
+            double x0 = obj->getX();
+            Support* tmp = (Support* )obj;
+            int length = tmp->getLength();
+            if (y + BALL_SIZE > DEFAULT_SCREEN_HEIGHT - SUPPORT_HEIGHT &&
+                x + BALL_SIZE/2 > x0 &&
+                x < x0 + length)
+            {
+                f = BACK;
+                changeVelocityDependedOnCollide();
+            }
             break;
         }
         default:

@@ -46,6 +46,8 @@ public:
     
     double getVelocity();
     
+    int getLength();
+    
     void setVelocity(double v);
     
     void update(float dt);
@@ -115,4 +117,9 @@ void Support::draw(sf::RenderWindow* window)
 {
     window->draw(sprite);
     window->draw(sprite2);
+}
+
+int Support::getLength()
+{
+    return length;
 }

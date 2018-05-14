@@ -80,13 +80,14 @@ void PhysicsManager::UpdateAllObjects()
     
     
     for (int i = 0; i < amount_of_game_objects; i++)
-        for (int j = i + 1; j < amount_of_game_objects; j++)
-        {
-            if (gameobjects[i]->collideCheck(gameobjects[j]))
+        for (int j = 0; j < amount_of_game_objects; j++)
+            if (i != j)
             {
-                gameobjects[i]->collideResponse(gameobjects[j]);
+                if (gameobjects[i]->collideCheck(gameobjects[j]))
+                {
+                    gameobjects[i]->collideResponse(gameobjects[j]);
+                }
             }
-        }
     for (int i = 0; i < amount_of_game_objects; i++)
     {
         gameobjects[i]->update(dt);
