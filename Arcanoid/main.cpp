@@ -110,7 +110,7 @@ int main(int, char const**)
                         case sf::Mouse::Left:
                         {
                             ball.release();
-                            ball.setVelocity(0, -10);
+                            ball.setVelocity(0, -20);
                             break;
                         }
                         default: break;

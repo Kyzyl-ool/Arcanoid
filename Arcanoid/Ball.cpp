@@ -44,12 +44,13 @@ private:
     int type;
     bool free = false;
     collide_flag f;
+    double reflection_angle;
     
     
 public:
     Ball();
     
-    void setVelocity(double iVx, double iVy);
+    void setVelocity(double iVx, double triVy);
     
     void update(float dt);
     void draw(sf::RenderWindow* window);
@@ -72,7 +73,8 @@ int get_ball_coord_y(int the_type)
 }
 
 Ball::Ball():
-f(NULL_DESTINATION)
+f(NULL_DESTINATION),
+reflection_angle(0)
 {
     type = BALL;
     texture.loadFromFile(BLOCKS_AND_BALLS_FILE);
@@ -172,6 +174,8 @@ void Ball::changeVelocityDependedOnCollide()
 //            std::cout << 22222222 << std::endl;
             if (Vy > 0)
                 Vy = -Vy;
+            Vx = reflection_angle;
+            reflection_angle = 0;
             f = NULL_DESTINATION;
             break;
         }
@@ -229,6 +233,7 @@ bool Ball::collideCheck(GameObject* obj)
                 x < x0 + length)
             {
                 f = BACK;
+                reflection_angle = 10*(x - x0 - length/2 + BALL_SIZE/2)/(length);
                 changeVelocityDependedOnCollide();
             }
             break;
