@@ -75,8 +75,7 @@ int get_ball_coord_y(int the_type)
 
 Ball::Ball():
 f(NULL_DESTINATION),
-reflection_angle(0),
-felt(false)
+reflection_angle(0)
 {
     type = BALL;
     texture.loadFromFile(BLOCKS_AND_BALLS_FILE);
@@ -133,7 +132,8 @@ void Ball::update(float dt)
     }
     else if (y > DEFAULT_SCREEN_HEIGHT)
     {
-        felt = true;
+        Vx = 0;
+        Vy = 0;
     }
     
     sprite.setPosition(x, y);

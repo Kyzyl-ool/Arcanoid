@@ -30,12 +30,14 @@ enum GameObject_t
 class GameObject
 {
 protected:
+    bool must_be_deleted;
     double x, y;
     GameObject_t type;
     sf::Sprite sprite;
     sf::Texture texture;
     
 public:
+    bool is_must_be_deleted();
     sf::Sprite* GetSprite();
     virtual void update(float) {;}
     virtual void draw(sf::RenderWindow* window) {;}
@@ -46,9 +48,15 @@ public:
     double getY();
     
     GameObject_t who();
-//    GameObject();
+    GameObject();
 //    ~GameObject();
 };
+
+GameObject::GameObject():
+must_be_deleted(false)
+{
+    
+}
 
 sf::Sprite* GameObject::GetSprite()
 {
@@ -68,4 +76,9 @@ double GameObject::getX()
 double GameObject::getY()
 {
     return y;
+}
+
+bool GameObject::is_must_be_deleted()
+{
+    return must_be_deleted;
 }
