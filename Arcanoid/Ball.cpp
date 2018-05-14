@@ -104,6 +104,24 @@ void Ball::update(float dt)
         y += Vy*dt;
     }
     
+    if (x > DEFAULT_SCREEN_WIDTH - BALL_SIZE)
+    {
+//        exit(0);
+        f = LEFT;
+        changeVelocityDependedOnCollide();
+        
+//        Vx = - Vx;
+    }
+    else if (x < 0)
+    {
+        f = RIGHT;
+        changeVelocityDependedOnCollide();
+    }
+    else if (y < 0)
+    {
+        f = FRONT;
+        changeVelocityDependedOnCollide();
+    }
     sprite.setPosition(x, y);
     
 //    std::cout << x << ", " << y << std::endl;
@@ -125,7 +143,6 @@ void Ball::collideResponse(GameObject *obj)
     switch (obj->who()) {
         case BLOCK:
             changeVelocityDependedOnCollide();
-            f = NULL_DESTINATION;
             break;
         default:
             break;
@@ -142,6 +159,7 @@ void Ball::changeVelocityDependedOnCollide()
 //            std::cout << 11111111 << std::endl;
             if (Vy < 0)
                 Vy = -Vy;
+            f = NULL_DESTINATION;
             break;
         }
         case BACK:
@@ -149,6 +167,7 @@ void Ball::changeVelocityDependedOnCollide()
 //            std::cout << 22222222 << std::endl;
             if (Vy > 0)
                 Vy = -Vy;
+            f = NULL_DESTINATION;
             break;
         }
         case LEFT:
@@ -156,6 +175,7 @@ void Ball::changeVelocityDependedOnCollide()
 //            std::cout << 33333333 << std::endl;
             if (Vx > 0)
                 Vx = - Vx;
+            f = NULL_DESTINATION;
             break;
         }
         case RIGHT:
@@ -163,6 +183,7 @@ void Ball::changeVelocityDependedOnCollide()
 //            std::cout << 444444444 << std::endl;
             if (Vx < 0)
                 Vx = -Vx;
+            f = NULL_DESTINATION;
             break;
         }
         default:
