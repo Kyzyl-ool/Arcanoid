@@ -45,6 +45,7 @@ private:
     bool free = false;
     collide_flag f;
     double reflection_angle;
+    bool felt;
     
     
 public:
@@ -74,7 +75,8 @@ int get_ball_coord_y(int the_type)
 
 Ball::Ball():
 f(NULL_DESTINATION),
-reflection_angle(0)
+reflection_angle(0),
+felt(false)
 {
     type = BALL;
     texture.loadFromFile(BLOCKS_AND_BALLS_FILE);
@@ -124,11 +126,16 @@ void Ball::update(float dt)
         f = RIGHT;
         changeVelocityDependedOnCollide();
     }
-    else if (y < 0)
+    if (y < 0)
     {
         f = FRONT;
         changeVelocityDependedOnCollide();
     }
+    else if (y > DEFAULT_SCREEN_HEIGHT)
+    {
+        felt = true;
+    }
+    
     sprite.setPosition(x, y);
     
 //    std::cout << x << ", " << y << std::endl;
